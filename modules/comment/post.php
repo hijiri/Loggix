@@ -51,9 +51,9 @@ if ((isset($_POST['title'],
             $item['user_cookie']['user_name'] = $_POST['user_name'];
             setcookie('loggix_comment_user', $item['user_cookie']['user_name'], time()+86400*365, '/');
         }
-        if (isset($_POST['user_email'])) {
-            $item['user_cookie']['user_email'] = $_POST['user_email'];
-            setcookie('loggix_comment_email', $item['user_cookie']['user_email'], time()+86400*365, '/');
+        if (isset($_POST['user_mail'])) {
+            $item['user_cookie']['user_mail'] = $_POST['user_mail'];
+            setcookie('loggix_comment_mail', $item['user_cookie']['user_mail'], time()+86400*365, '/');
         }
         if (isset($_POST['user_uri'])) {
             $item['user_cookie']['user_uri'] = $_POST['user_uri'];
@@ -116,6 +116,7 @@ if ((isset($_POST['title'],
                     ? @gethostbyaddr($_SERVER['REMOTE_ADDR'])
                     : $_SERVER['REMOTE_HOST'];
 
+        $userMail = (isset($_POST['user_mail'])) ? $_POST['user_mail'] : '';
         $userUri = (isset($_POST['user_uri'])) ? $_POST['user_uri'] : '';
 
         $app->db->beginTransaction();
@@ -130,6 +131,7 @@ if ((isset($_POST['title'],
              .             '`comment`, '
              .             '`user_name`, '
              .             '`user_pass`, '
+             .             '`user_mail`, '
              .             '`user_uri`, '
              .             '`date`, '
              .             '`mod`, '
@@ -143,6 +145,7 @@ if ((isset($_POST['title'],
              .             ':comment, '
              .             ':user_name, '
              .             ':user_pass, '
+             .             '`user_mail`, '
              .             ':user_uri, '
              .             ':date, '
              .             ':mod, '
@@ -158,6 +161,7 @@ if ((isset($_POST['title'],
                        ':comment'    => $comment,
                        ':user_name'  => $userName,
                        ':user_pass'  => $userPass,
+                       ':user_mail'  => $userMail,
                        ':user_uri'   => $userUri,
                        ':date'       => $fdate,
                        ':mod'        => $cmod,

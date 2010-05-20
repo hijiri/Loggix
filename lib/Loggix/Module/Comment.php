@@ -247,8 +247,8 @@ class Loggix_Module_Comment extends Loggix_Module
             $item['user_cookie']['user_name'] = (isset($_COOKIE['loggix_comment_user']))
                                               ? $_COOKIE['loggix_comment_user'] 
                                               : '';
-            $item['user_cookie']['user_email'] = (isset($_COOKIE['loggix_comment_email'])) 
-                                              ? $_COOKIE['loggix_comment_email'] 
+            $item['user_cookie']['user_mail'] = (isset($_COOKIE['loggix_comment_mail'])) 
+                                              ? $_COOKIE['loggix_comment_mail'] 
                                               : '';
             $item['user_cookie']['user_uri'] = (isset($_COOKIE['loggix_comment_uri'])) 
                                               ? $_COOKIE['loggix_comment_uri'] 
@@ -468,6 +468,8 @@ class Loggix_Module_Comment extends Loggix_Module
         if ($commentList == '') { 
             $commentList = '<li>' . $lang['comment']['default_message'] . '</li>'; 
         }
+        // Apply plugin filter
+        $commentList = $this->plugin->applyFilters('recent-comments-text', $commentList);
         
         return $commentList;
     }
