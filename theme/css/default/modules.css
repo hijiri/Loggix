@@ -28,9 +28,11 @@ textarea {
 } #comments div.section {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    background: #f3f3e4 url(./images/chat-bubble-guest.png) 0 bottom no-repeat;
+/*    background: #f3f3e4 url(./images/chat-bubble-guest.png) 0 bottom no-repeat; */
+    background: #f3f3e4 url(./images/chat-bubble.png) 0 bottom no-repeat;
 } #comments div.admin {
-    background: #e6e6fa url(./images/chat-bubble-admin.png) 0 bottom no-repeat;
+/*    background: #e6e6fa url(./images/chat-bubble-admin.png) 0 bottom no-repeat; */
+    background: #e6e6fa url(./images/chat-bubble-background.png) 0 bottom no-repeat;
 } #comments h5 {
     margin: 0;
     padding: 3px 0 0 10px;
@@ -39,10 +41,14 @@ textarea {
 } #comments .admin p {
     color: #333399;
 } #comments .author {
-    margin: 30px 5px 0 35px;
-    padding: 0 0 5px 0;
+    margin: 0;
+    padding: 0;
     color: #666666;
     font: italic 90%/180% sans-serif;
+} #comments .author img {
+    margin: 0.5em 1.5em 0em 0em;
+    padding: 0;
+    vertical-align : bottom;
 }
 
 /* CAPTCHA */
