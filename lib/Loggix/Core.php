@@ -9,7 +9,7 @@
  * @link      http://loggix.gotdns.org/
  * @license   http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @since     5.5.16
- * @version   10.4.17
+ * @version   10.5.23
 */
 
 /**
@@ -71,7 +71,7 @@ class Loggix_Core
     const LOGGIX_THEME_DIR        = '/theme/';
     const LOGGIX_TITLE_SEPARATOR  = ' : ';
     const LOGGIX_PROJ_URI         = 'http://loggix.gotdns.org';
-    const LOGGIX_VERSION          = '10.4.17';
+    const LOGGIX_VERSION          = '10.5.23';
     
 
     // {{{ Properties
@@ -674,7 +674,7 @@ class Loggix_Core
      * @return string
      * @see:   http://prism-perfect.net/archive/php-tag-cloud-tutorial/
      */
-    public function getTagCloudArray($tagMode = null, $withDraft = 'no')
+    public function getTagCloudArray($tagMode = null, $withDraft = 'yes')
     {
         global $item, $pathToIndex;
         
