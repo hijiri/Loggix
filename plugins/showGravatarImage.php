@@ -50,7 +50,7 @@ function showGravatarImage($commentID, $class = 'guest')
                   . '&amp;size='   . $size
                   . '&amp;rating=' . $rating;
     } else {
-        $imageUrl = defaultUrl;
+        $imageUrl = $defaultUrl;
     }
 
     return '<img src="' . $imageUrl . '" width="' . $size .'" height="' . $size .'" alt="' . $alt .'" />';
