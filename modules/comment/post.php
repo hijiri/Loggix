@@ -145,7 +145,7 @@ if ((isset($_POST['title'],
              .             ':comment, '
              .             ':user_name, '
              .             ':user_pass, '
-             .             '`user_mail`, '
+             .             ':user_mail, '
              .             ':user_uri, '
              .             ':date, '
              .             ':mod, '
