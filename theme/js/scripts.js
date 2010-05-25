@@ -476,34 +476,3 @@ minmax_scanner= window.setInterval(minmax_scan, minmax_SCANDELAY);
 window.attachEvent('onload', minmax_stop);
 
 @end @*/
-
-function writeReadMoreLink(id, readText, hideText){
-    linkStr = '<p class="read-more"><a href="javascript:readMoreFunc(\'' + id + '\', \'' + readText + '\', \'' + hideText + '\');" class="showlink" id="linkId' + id + '" title="ID ' + id + ':' + readText + '">' + readText + '</a></p>';
-    document.write(linkStr);
-}
-
-function readMoreFunc(id, readText, hideText) {
-    // SETTING BEGIN
-    // Effect type
-    var effect     = 'blind';
-    // Effect time
-    var effectTime = 1000;
-    // SETTING END
-
-    targetObj = '#targetId' + id;
-    targetLnk = '#linkId' + id;
-
-    $(targetObj).toggle(effect, effectTime, function() {
-        if ($(targetObj).is(":hidden")) {
-            $(targetLnk).text(readText);
-            $(targetLnk).removeClass("hidelink");
-            $(targetLnk).addClass("showlink");
-            $(targetLnk).attr("title", "ID " + id + ":" + readText);
-        } else {
-            $(targetLnk).text(hideText);
-            $(targetLnk).removeClass("showlink");
-            $(targetLnk).addClass("hidelink");
-            $(targetLnk).attr("title", "ID " + id + ":" + hideText);
-        }
-    });
-}
