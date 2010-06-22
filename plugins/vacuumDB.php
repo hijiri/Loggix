@@ -7,16 +7,17 @@
  * @link      http://tkns.homelinux.net/
  * @license   http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @since     2010.06.13
- * @version   10.6.15
+ * @version   10.6.22
  */
 
-// after? before?
+// Ummm.....
 //$this->plugin->addAction('after-new-entry-posted', 'vacuumDB');
-$this->plugin->addFilter('h1', 'vacuumDB', 1);
+$this->plugin->addFilter('h1', 'vacuumDB');
 
+//function vacuumDB($referId)
 function vacuumDB($text)
 {
-    global $pathToIndex;
+    global $pathToIndex, $app;
 
     // Day
     $limit = 10;
@@ -29,6 +30,17 @@ function vacuumDB($text)
             chmod($filename, 0666);
             $backupDB = 'sqlite:' . $filename;
             $bdb = new PDO($backupDB);
+
+            // Garbage Collection (/admin/delete.php)
+            $maxLifeTime = get_cfg_var("session.gc_maxlifetime");
+            $expirationTime = time() - $maxLifeTime;
+            $sql = 'DELETE FROM ' 
+                 .     SESSION_TABLE . ' '
+                 . 'WHERE '
+                 .     "sess_date < '" . $expirationTime . "'";
+            $bdb->query($sql);
+
+            // Vacuum DB
             $bdb->query('VACUUM');
 
             if(rename($loggixDB, $loggixDB . '.OLD')) {
