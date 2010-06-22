@@ -451,6 +451,7 @@ class Loggix_Application extends Loggix_Core
            $item['search_dir'] = $pathToIndex;
            $item['tag_cloud']  = $this->getTagCloudArray();
         }
+        $item['tag_cloud'] = $this->plugin->applyFilters('tag-cloud-content', $item['tag_cloud']);
         
         $item['admin']['menu'] = $this->getAdminMenu($sessionState);
         $item['content_menu']  = $this->getContentMenu();
