@@ -1,23 +1,23 @@
 <?php
 /**
- * Loggix_Plugin - Vacuum DB
+ * Loggix_Plugin - Optimize DB
  *
  * @copyright Copyright (C) UP!
  * @author    hijiri
  * @link      http://tkns.homelinux.net/
  * @license   http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @since     2010.06.13
- * @version   10.6.22
+ * @version   10.6.27
  */
 
 // Ummm.....
-//$this->plugin->addAction('after-new-entry-posted', 'vacuumDB');
-$this->plugin->addFilter('h1', 'vacuumDB');
+//$this->plugin->addAction('after-new-entry-posted', 'optimizeDB');
+$this->plugin->addFilter('h1', 'optimizeDB');
 
-//function vacuumDB($referId)
-function vacuumDB($text)
+//function optimizeDB($referId)
+function optimizeDB($text)
 {
-    global $pathToIndex, $app;
+    global $pathToIndex;
 
     // Day
     $limit = 10;
@@ -56,4 +56,3 @@ function vacuumDB($text)
 
     return $text;
 }
-
