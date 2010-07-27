@@ -1,6 +1,6 @@
 <?php
 /**
- * Crypt - Crypt and Decrypt.
+ * Crypt - Encrypt and Decrypt.
  *
  * PHP version 5
  *
@@ -9,17 +9,17 @@
  * @link      http://tkns.homelinux.net/
  * @license   http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @since     2010.07.25
- * @version   10.7.26
+ * @version   10.7.27
  */
 
 /**
-* Crypt data
+* Encrypt data
 *
 * @param  string $data
 * @param  string $key
 * @return string
 */
-function dataCrypt($data, $key)
+function dataEncrypt($data, $key)
 {
     // Open module
     $resource = mcrypt_module_open('rijndael-256', '',  'cbc', '');

@@ -38,6 +38,9 @@ define('TRACKBACK_TABLE',         'loggix_trackback');
 define('COMMENT_TABLE',           'loggix_comment');
 /*}}}*/
 
+// Library '/lib/php/Crypt.php' crypt key
+define('LIB_CRYPT_KEY',           'Please change your secret key');
+
 /**
  * Loggix Core Class
  *

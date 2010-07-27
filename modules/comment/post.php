@@ -13,6 +13,7 @@
  */
 $pathToIndex = '../..';
 require_once $pathToIndex . '/lib/Loggix/Module/Comment.php';
+require_once $pathToIndex . '/lib/php/Crypt.php';
 
 $app    = new Loggix_Module_Comment;
 $config = $app->getConfigArray();
@@ -116,7 +117,7 @@ if ((isset($_POST['title'],
                     ? @gethostbyaddr($_SERVER['REMOTE_ADDR'])
                     : $_SERVER['REMOTE_HOST'];
 
-        $userMail = (isset($_POST['user_mail'])) ? $_POST['user_mail'] : '';
+        $userMail = (isset($_POST['user_mail'])) ? dataEncrypt($_POST['user_mail'], LIB_CRYPT_KEY) : '';
         $userUri = (isset($_POST['user_uri'])) ? $_POST['user_uri'] : '';
 
         $app->db->beginTransaction();
