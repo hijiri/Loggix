@@ -117,7 +117,7 @@ if ((isset($_POST['title'],
                     ? @gethostbyaddr($_SERVER['REMOTE_ADDR'])
                     : $_SERVER['REMOTE_HOST'];
 
-        $userMail = (isset($_POST['user_mail'])) ? dataEncrypt($_POST['user_mail'], LIB_CRYPT_KEY) : '';
+        $userMail = (!empty($_POST['user_mail'])) ? dataEncrypt($_POST['user_mail'], LIB_CRYPT_KEY) : '';
         $userUri = (isset($_POST['user_uri'])) ? $_POST['user_uri'] : '';
 
         $app->db->beginTransaction();
